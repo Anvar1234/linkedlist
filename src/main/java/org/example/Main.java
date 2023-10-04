@@ -7,9 +7,11 @@ public class Main {
     public static void main(String[] args) {
         AnvarList<String> list = new AnvarLinkedList<>();
         list.add("str3");
-        list.add(("str2"));
+        list.add(("str3"));
         list.add("str3");
-        list.add(("str4"));
+        list.add("str4");
+        list.add(("str3"));
+        list.add("str5");
 
         //for-each почему-то удаляет все эл из листа
 //        for(String s : list){
@@ -22,7 +24,7 @@ public class Main {
 //        System.out.println("get = " + list.get(0));
 //        System.out.println("list after set element:\n" + list);
 
-        //если есть одинаковые значения в листе, то удаляет все, но размер неверно отображается.
+        //если есть одинаковые значения в листе, то удаляет первое встреченное.
         list.remove("str3");
         System.out.println("list after remove:\n" + list);
         System.out.println("size = " + list.size());

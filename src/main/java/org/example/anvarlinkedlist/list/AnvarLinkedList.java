@@ -7,11 +7,11 @@ import java.util.Objects;
 
 public class AnvarLinkedList<T> implements AnvarList<T>, Iterable<T> {
     private Node<T> head;
-    private int size;
+    private static int size;
 
     public AnvarLinkedList() {
         this.head = null;
-        this.size = 0;
+        size = 0;
     }
 
 
@@ -63,20 +63,24 @@ public class AnvarLinkedList<T> implements AnvarList<T>, Iterable<T> {
         size++;
     }
 
-    //удаление по содержанию (не индексу). Удаляет все equals значения. Если элемент последний - ошибка.
-    //При этом size отображается некорректно.
+    //удаление по содержанию (не индексу). Удаляет первое equals значение.
+    // Если элемент последний - ошибка.
+    //Также возможно нужно как-то останавливать выполнение после первого найденного значения?
     @Override
     public void remove(T element) {
         if (head.data.equals(element)) {
             head = head.next;
-        }
-        Node<T> tempNode = head;
-        while (tempNode.next != null) {
-            if (tempNode.next.data.equals(element)) {
-                tempNode.next = tempNode.next.next;
-                size--;
+            size--;
+        } else {
+            Node<T> tempNode = head;
+            while (tempNode.next != null) {
+                if (tempNode.next.data.equals(element)) {
+                    tempNode.next = tempNode.next.next;
+                    size--;
+                    break;
+                }
+                tempNode = tempNode.next;
             }
-            tempNode = tempNode.next;
         }
     }
 

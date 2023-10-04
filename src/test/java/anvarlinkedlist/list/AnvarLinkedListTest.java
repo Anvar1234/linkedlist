@@ -89,13 +89,12 @@ public class AnvarLinkedListTest {
         assertEquals("3", anvarList.get(1));
         assertEquals(2, anvarList.size());
 
-        //удаление всех хначений происходит, но сайз не отрабатывает.
-//        AnvarList<String> anvarList1 = new AnvarLinkedList<>();
-//        anvarList1.add("2");
-//        anvarList1.add("1");
-//        anvarList1.add("1");
-//        anvarList1.remove("1");
-//        assertEquals(1, anvarList1.size());
+        AnvarList<String> anvarList1 = new AnvarLinkedList<>();
+        anvarList1.add("1");
+        anvarList1.add("1");
+        anvarList1.add("1");
+        anvarList1.remove("1");
+        assertEquals(2, anvarList1.size());
 
     }
     @Test
@@ -105,6 +104,7 @@ public class AnvarLinkedListTest {
         anvarList.add("2");
         anvarList.add("3");
         anvarList.remove("2");
+        assertNotEquals(0, anvarList.size());
         assertNotEquals(1, anvarList.size());
         assertNotEquals(3, anvarList.size());
     }
