@@ -145,7 +145,6 @@ public class AnvarLinkedList<T> implements AnvarList<T>, Iterable<T> {
                 return head != null;
             }
 
-            //не понял логику.
             @Override
             public T next() {
                 Node<T> tempNode = head;
